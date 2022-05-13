@@ -1,14 +1,20 @@
 import React from 'react';
-
+import chair from '../../assets/images/chair.png'
+import PrimaryButton from '../Shared/PrimaryButton';
+import banner from '../../assets/images/bg.png'
 const Banner = () => {
     return (
-        <div class="hero min-h-screen bg-base-200">
-            <div class="hero-content flex-col lg:flex-row-reverse">
-                <img src="https://api.lorem.space/image/movie?w=260&h=400" class="max-w-sm rounded-lg shadow-2xl" />
+        <div
+        style={{
+            background: `url(${banner})`
+        }}
+        className="hero min-h-screen ">
+            <div className="hero-content flex-col lg:flex-row-reverse">
+                <img src={chair} className="max-w-sm rounded-lg shadow-2xl" />
                 <div>
-                    <h1 class="text-5xl font-bold">Box Office News!</h1>
-                    <p class="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
-                    <button class="btn btn-primary">Get Started</button>
+                    <h1 className="text-5xl font-bold">Your new smile start here</h1>
+                    <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
+                   <PrimaryButton>Get Started</PrimaryButton>
                 </div>
             </div>
         </div>
