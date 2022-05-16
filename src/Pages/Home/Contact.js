@@ -1,7 +1,10 @@
 import React from 'react';
 import appointment from '../../assets/images/appointment.png'
-import PrimaryButton from '../Shared/PrimaryButton';
+
 const Contact = () => {
+    const handleSubmit = (event) => {
+        event.preventDefault()
+    }
     return (
         <section className=' my-28'
             style={{
@@ -12,18 +15,20 @@ const Contact = () => {
             <div className='text-center my-3'>
                 <h3 className='text-xl text-primary'>Contact us</h3>
                 <h2 className='text-3xl text-white my-2 '>Stay connected with us</h2>
-               
-            </div>
-            <div className='text-center p-5'>
-                <input  className=' py-2 text-xl border rounded' type="email" placeholder='Email Address' />
-                <br />
-                <input  className='mt-3 py-2 text-xl border rounded' type="text" placeholder='Subjects'/>
-                <br />
-                <textarea className='mt-3 py-2 text-xl border rounded'  name="" id="" placeholder='Your text' cols="24" rows="3"></textarea>
-                <PrimaryButton>Submit</PrimaryButton>
-               
-            </div>
-           
+
+            </div >
+          <div className='flex justify-center'>
+          <form
+                onSubmit={handleSubmit}
+                className='grid grid-cols-1 gap-3  mt-3 py-5  w-50 h-50'>
+                <input type="text" name='name' placeholder="Email Address"  className="input input-bordered w-full max-w-xs" />
+                <input type="text" name='subject' placeholder="Subject"  className="input input-bordered w-full max-w-xs" />
+                <textarea className="textarea" placeholder="Your message"></textarea>
+
+                <input type="submit" value="Sumbit"  className="btn btn-secondary w-full max-w-xs" />
+
+            </form>
+          </div>
         </section>
     );
 };
