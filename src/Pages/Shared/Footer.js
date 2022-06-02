@@ -9,8 +9,8 @@ const Footer = () => {
                 backgroundSize: 'cover'
             }}
         >
-            <footer className=" p-10 ">
-                <div className='footer'>
+            <footer className=" p-10  ">
+                <div className='footer '>
                     <div>
                         <span className="footer-title">Services</span>
                         <a className="link link-hover">Branding</a>

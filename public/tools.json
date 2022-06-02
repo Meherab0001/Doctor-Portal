@@ -1,0 +1,27 @@
+[
+    {
+        
+        "name": "Transmission",
+        "description": "A typical car transmission is comprised of between five and six gear sets and a series of gear trains ,",
+        "img": "https://i.ibb.co/R0n2Zjw/Automatic-transmission-cut.jpg,",
+        "quantity":"800",
+        "price":"300"
+    },
+    {
+        
+        "name": "Radiato",
+        "description": " is part of the engines cooling system, which also includes a liquid coolant, hoses to circulate the coolant, a fan, and a thermostat that monitors the coolant temperature ,",
+        "img": "https://i.ibb.co/DpRTN4P/Automobile-radiator.jpg,",
+        "quantity":"900",
+        "price":"120"
+        
+    },
+    {
+        
+        "name": "Piston",
+        "description": "A piston is a component of reciprocating engines, reciprocating pumps, gas compressors, hydraulic cylinders and pneumatic cylinders, among other similar mechanisms ",
+        "img": "https://i.ibb.co/2NNT6Bj/download-2.jpg",
+        "quantity":"1500",
+        "price":"250"
+    }
+]

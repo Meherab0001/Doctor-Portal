@@ -4,6 +4,7 @@ import auth from '../../firebase.init';
 import { useForm } from "react-hook-form";
 import Loading from '../Shared/Loading';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import useToken from '../../hooks/useToken';
 
 const Login = () => {
     const [signInWithGoogle, guser, gloading, gerror] = useSignInWithGoogle(auth);
@@ -13,30 +14,30 @@ const Login = () => {
         user,
         loading,
         error,
-      ] = useSignInWithEmailAndPassword(auth);
-      let navigate = useNavigate();
-      let location = useLocation();
-     
-    
-      let from = location.state?.from?.pathname || "/";
- useEffect(()=>{
-    if (user ||guser) {
-        navigate(from);
-    }
- },[user,guser,from,navigate])
+    ] = useSignInWithEmailAndPassword(auth);
+    let navigate = useNavigate();
+    let location = useLocation();
+
+    const [token] = useToken(user || guser)
+    let from = location.state?.from?.pathname || "/";
+    useEffect(() => {
+        if (token) {
+            navigate(from);
+        }
+    }, [token, from, navigate])
 
     let singInErrorMessage;
 
-    if(loading ||gloading){
+    if (loading || gloading) {
         return <Loading></Loading>
     }
-    if(error || gerror){
-        singInErrorMessage=<p className='text-red-500'>{error?.message ||gerror?.message}</p>
+    if (error || gerror) {
+        singInErrorMessage = <p className='text-red-500'>{error?.message || gerror?.message}</p>
     }
     const onSubmit = data => {
 
         console.log(data)
-        signInWithEmailAndPassword(data.email,data.password)
+        signInWithEmailAndPassword(data.email, data.password)
     };
     return (
         <div className='flex h-screen justify-center items-center'>
@@ -61,7 +62,7 @@ const Login = () => {
                                             message: 'Email is Required'
                                         },
                                         pattern: {
-                                            value:/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
+                                            value: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
                                             message: 'Provide a valid Email'
                                         }
                                     }
@@ -89,7 +90,7 @@ const Login = () => {
                                             message: 'Password is Required'
                                         },
                                         minLength: {
-                                            value:6,
+                                            value: 6,
                                             message: 'Must be 6 character or longer Password'
                                         }
                                     }
@@ -101,7 +102,7 @@ const Login = () => {
                             </label>
                         </div>
                         <input />
-                                    {singInErrorMessage}
+                        {singInErrorMessage}
                         <input className='btn  w-full max-w-xs text-white' type="submit" value="Login" />
                         <p className='mt-2'><small>New to Doctors Portals?</small><Link className='text-primary' to='/singup'>Create New Account.</Link></p>
                     </form>
